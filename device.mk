@@ -53,6 +53,7 @@ PRODUCT_COPY_FILES += \
 	device/samsung/aries-common/lpm.rc:root/lpm.rc \
 	device/samsung/fascinatemtd/ueventd.aries.rc:root/ueventd.aries.rc \
 	device/samsung/fascinatemtd/fstab.aries:root/fstab.aries \
+        device/samsung/fascinatemtd/recovery/twrp.fstab:recovery/root/etc/twrp.fstab \
 	device/samsung/aries-common/setupdatadata.sh:root/sbin/setupdatadata.sh
 
 # Prebuilt kl keymaps
@@ -176,6 +177,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # be reachable from resources or other mechanisms.
 PRODUCT_PROPERTY_OVERRIDES += \
        wifi.interface=wlan0
+
+# Define low ram device
+PRODUCT_PROPERTY_OVERRIDES += \
+       ro.config.low_ram=true
 
 # SGX540 is slower with the scissor optimization enabled
 PRODUCT_PROPERTY_OVERRIDES += \

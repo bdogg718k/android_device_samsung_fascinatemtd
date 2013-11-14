@@ -35,6 +35,10 @@ TARGET_CPU_VARIANT := cortex-a8
 # Dalvik startup with low memory footprint
 TARGET_ARCH_LOWMEM := true
 
+TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
+
+BOARD_EGL_WORKAROUND_BUG_10194508 := true
+
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
@@ -93,7 +97,7 @@ TARGET_KERNEL_SOURCE := kernel/samsung/aries
 TARGET_KERNEL_CONFIG := cyanogenmod_fascinatemtd_defconfig
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 7864320
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 262144000
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 419430400
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 1665130496
 BOARD_FLASH_BLOCK_SIZE := 4096
 
@@ -142,14 +146,23 @@ BOARD_SEPOLICY_DIRS += \
 
 BOARD_SEPOLICY_UNION += \
     bdaddr_read.te \
-    device.te \
-    domain.te \
     file_contexts \
     geomagneticd.te \
-    mediaserver.te \
     orientationd.te \
     property_contexts \
     pvrsrvinit.te \
     rild.te \
     tvouthack.te \
     tvoutserver.te
+
+# TWRP Flags
+DEVICE_RESOLUTION := 480x800
+TW_INCLUDE_INJECTTWRP := true
+TW_NO_REBOOT_BOOTLOADER := true
+TW_EXTERNAL_STORAGE_PATH := "/sdcard"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
+TW_DEFAULT_EXTERNAL_STORAGE := true
+HAVE_SELINUX := true
+TW_EXCLUDE_SUPERSU := true
+TW_NO_EXFAT_FUSE := true
+TW_INCLUDE_FB2PNG := true
