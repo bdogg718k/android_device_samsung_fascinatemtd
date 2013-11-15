@@ -74,7 +74,8 @@ PRODUCT_PACKAGES := \
 # Filesystem management tools
 PRODUCT_PACKAGES += \
 	setup_fs \
-	bml_over_mtd
+	bml_over_mtd \
+        make_f2fs
 
 # BT MAC fix
 PRODUCT_PACKAGES += \

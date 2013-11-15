@@ -23,6 +23,7 @@ UTILITIES_DIR = os.path.join(TARGET_DIR, 'utilities')
 
 def FullOTA_Assertions(info):
   info.output_zip.write(os.path.join(TARGET_DIR, "updater.sh"), "updater.sh")
+  info.output_zip.write(os.path.join(UTILITIES_DIR, "make_f2fs"), "make_f2fs")
   info.output_zip.write(os.path.join(UTILITIES_DIR, "make_ext4fs"), "make_ext4fs")
   info.output_zip.write(os.path.join(UTILITIES_DIR, "busybox"), "busybox")
   info.output_zip.write(os.path.join(UTILITIES_DIR, "flash_image"), "flash_image")
@@ -34,6 +35,9 @@ def FullOTA_Assertions(info):
   info.script.AppendExtra(
         ('package_extract_file("updater.sh", "/tmp/updater.sh");\n'
          'set_perm(0, 0, 0777, "/tmp/updater.sh");'))
+  info.script.AppendExtra(
+       ('package_extract_file("make_f2fs", "/tmp/make_f2fs");\n'
+        'set_perm(0, 0, 0777, "/tmp/make_f2fs");'))
   info.script.AppendExtra(
        ('package_extract_file("make_ext4fs", "/tmp/make_ext4fs");\n'
         'set_perm(0, 0, 0777, "/tmp/make_ext4fs");'))
