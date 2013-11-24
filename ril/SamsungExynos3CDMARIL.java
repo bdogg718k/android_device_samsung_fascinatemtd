@@ -58,13 +58,13 @@ import com.android.internal.telephony.dataconnection.DcFailCause;
 
 import android.telephony.Rlog;
 
-public class SamsungExynos3RIL extends RIL implements CommandsInterface {
+public class SamsungExynos3CDMARIL extends RIL implements CommandsInterface {
 
     private boolean mSignalbarCount = SystemProperties.getInt("ro.telephony.sends_barcount", 0) == 1 ? true : false;
     private boolean mIsSamsungCdma = SystemProperties.getBoolean("ro.ril.samsung_cdma", false);
     private Object mCatProCmdBuffer;
 
-    public SamsungExynos3RIL(Context context, int networkMode, int cdmaSubscription) {
+    public SamsungExynos3CDMARIL(Context context, int networkMode, int cdmaSubscription) {
         super(context, networkMode, cdmaSubscription);
     }
 
