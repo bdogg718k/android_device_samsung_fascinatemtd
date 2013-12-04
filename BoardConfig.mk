@@ -35,9 +35,6 @@ TARGET_ARCH_HAVE_NEON := true
 
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
-# RIL
-BOARD_RIL_CLASS := ../../../device/samsung/fascinatemtd/ril/
-
 # Required for TV out
 COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 
