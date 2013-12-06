@@ -161,7 +161,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
        net.interfaces.defaultroute=cdma \
        mobiledata.interfaces=ppp0 \
        ro.ril.samsung_cdma=true \
-       ro.telephony.ril_class=SamsungExynos3RIL \
+       ro.telephony.ril_class=FascinateRIL \
        ro.telephony.ril.v3=datacall \
        ro.bq.gpu_to_cpu_unsupported=1
 
