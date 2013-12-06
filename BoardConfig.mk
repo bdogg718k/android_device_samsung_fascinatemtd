@@ -35,6 +35,9 @@ TARGET_CPU_VARIANT := cortex-a8
 # Dalvik startup with low memory footprint
 TARGET_ARCH_LOWMEM := true
 
+# RIL
+BOARD_RIL_CLASS := "../../../device/samsung/fascinatemtd/ril/"
+
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
