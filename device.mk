@@ -43,6 +43,9 @@
 PRODUCT_COPY_FILES := \
 	device/samsung/aries-common/mxt224_ts_input.idc:system/usr/idc/mxt224_ts_input.idc
 
+# Prebuilt lib for swipe
+PRODUCT_COPY_FILES += \
+    	device/samsung/fascinatemtd/prebuilt/libjni_latinime.so:system/lib/libjni_latinime.so
 # Init files
 PRODUCT_COPY_FILES += \
 	device/samsung/fascinatemtd/init.aries.rc:root/init.aries.rc \
