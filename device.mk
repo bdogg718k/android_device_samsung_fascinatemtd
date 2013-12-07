@@ -46,6 +46,11 @@ PRODUCT_COPY_FILES := \
 # Prebuilt lib for swipe
 PRODUCT_COPY_FILES += \
     	device/samsung/fascinatemtd/prebuilt/libjni_latinime.so:system/lib/libjni_latinime.so
+
+# Prebuilt apns-conf
+PRODUCT_COPY_FILES += \
+    	device/samsung/fascinatemtd/prebuilt/apns-conf.xml:system/etc/apns-conf.xml
+
 # Init files
 PRODUCT_COPY_FILES += \
 	device/samsung/fascinatemtd/init.aries.rc:root/init.aries.rc \
