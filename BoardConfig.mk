@@ -102,6 +102,7 @@ BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_CMDLINE := console=ttyFIQ0,115200 init=/init no_console_suspend
 
 # Kernel Config
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.7
 TARGET_KERNEL_SOURCE := kernel/samsung/aries
 TARGET_KERNEL_CONFIG := cyanogenmod_fascinatemtd_defconfig
 
