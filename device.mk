@@ -53,7 +53,8 @@ PRODUCT_COPY_FILES += \
 	device/samsung/aries-common/lpm.rc:root/lpm.rc \
 	device/samsung/fascinatemtd/ueventd.aries.rc:root/ueventd.aries.rc \
 	device/samsung/fascinatemtd/fstab.aries:root/fstab.aries \
-	device/samsung/aries-common/setupdatadata.sh:root/sbin/setupdatadata.sh
+	device/samsung/aries-common/setupdatadata.sh:root/sbin/setupdatadata.sh\
+     device/samsung/fascinatemtd/twrp.fstab:recovery/root/etc/twrp.fstab
 
 # Prebuilt kl keymaps
 PRODUCT_COPY_FILES += \
@@ -169,7 +170,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
        ro.ril.samsung_cdma=true \
        ro.telephony.ril_class=SamsungExynos3RIL \
        ro.telephony.ril.v3=datacall \
-       ro.bq.gpu_to_cpu_unsupported=1
+       ro.bq.gpu_to_cpu_unsupported=1 \
+       ro.config.low_ram=false
 
 # These are the hardware-specific settings that are stored in system properties.
 # Note that the only such settings should be the ones that are too low-level to
