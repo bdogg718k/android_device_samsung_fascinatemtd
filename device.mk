@@ -171,7 +171,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
        ro.telephony.ril_class=FascinateRIL \
        ro.telephony.ril.v3=datacall \
        ro.bq.gpu_to_cpu_unsupported=1 \
-       ro.config.low_ram=false
+       ro.config.low_ram=true \
+       ro.ksm.default=1
 
 # These are the hardware-specific settings that are stored in system properties.
 # Note that the only such settings should be the ones that are too low-level to
