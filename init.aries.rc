@@ -1,6 +1,7 @@
 import init.aries.usb.rc
 
 on init
+
     loglevel 9
     export EXTERNAL_STORAGE /storage/sdcard0
 
@@ -20,12 +21,13 @@ on init
     stop ril-daemon
 
 on boot
+
     mount debugfs /sys/kernel/debug /sys/kernel/debug
 
     setprop ro.build.product aries
     setprop ro.product.device aries
 
-# fake some battery state
+    # Fake some battery state
     setprop status.battery.state Slow
     setprop status.battery.level 5
     setprop status.battery.level_raw  50
@@ -41,7 +43,8 @@ on property:ril.bt_macaddr=*
     start bdaddr
 
 on fs
-# LVM: set up LVM volumes
+
+    # LVM: set up LVM volumes
     exec /lvm/sbin/lvm vgscan --mknodes --ignorelockingfailure
     exec /lvm/sbin/lvm vgchange -aly --ignorelockingfailure
     restorecon /dev/mapper/lvpool-system
@@ -52,7 +55,7 @@ on fs
     mount_all fstab.aries
     swapon_all fstab.aries
 
-# permissions for bluetooth.
+    # Permissions for bluetooth.
     chown bluetooth net_bt_stack /dev/s3c2410_serial0
     chmod 0600 /dev/s3c2410_serial0
     chmod 0660 /sys/class/rfkill/rfkill0/state
@@ -61,17 +64,17 @@ on fs
     restorecon /sys/class/rfkill/rfkill0/state
     restorecon /sys/class/rfkill/rfkill0/type
 
-# Permissions for System Server and daemons.
+    # Permissions for System Server and daemons.
     chown system system /sys/class/backlight/s5p_bl/brightness
 
-# change permission for uart_switch
+    # Change permission for uart_switch
     chown radio radio /sys/class/sec/uart_switch/UART_SEL/value
     chmod 660 /sys/class/sec/uart_switch/UART_SEL/value
 
-# load wifi module
+    # Load wifi module
     insmod /system/lib/modules/bcmdhd.ko
 
-# permission for tuning knobs
+    # Permission for tuning knobs
     chown system system /sys/class/misc/notification/bl_timeout
     chmod 660 /sys/class/misc/notification/bl_timeout
     restorecon /sys/class/misc/notification/bl_timeout
@@ -110,7 +113,7 @@ on fs
     restorecon /sys/devices/virtual/misc/color_tuning/red_multiplier
     restorecon /sys/devices/virtual/misc/color_tuning/red_v1_offset
 
-# Intentionally left world-writable for Voodoo Sound app
+    # Intentionally left world-writable for Voodoo Sound app
     restorecon /sys/devices/virtual/misc/voodoo_sound/adc_osr128
     restorecon /sys/devices/virtual/misc/voodoo_sound/dac_direct
     restorecon /sys/devices/virtual/misc/voodoo_sound/dac_osr128
@@ -140,7 +143,7 @@ on post-fs
     chmod 0771 /datadata
     restorecon /datadata
 
-# for sensor control
+    # For sensor control
     chown root input /sys/class/input/input0/enable
     chown root input /sys/class/input/input0/delay
     chown root input /sys/class/input/input0/wake
@@ -211,31 +214,32 @@ on post-fs
 
     chown root input /dev/i2c-12
 
-    # trigger governor change uevent
+    # Trigger governor change uevent
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
 
-# zRAM: only read one page at a time
+    # zRAM: only read one page at a time
     write /proc/sys/vm/page-cluster 0
 
 on post-fs-data
-    # for migrating download provider's cache out of the small /data/data
+
+    # For migrating download provider's cache out of the small /data/data
     mkdir /data/data2 0771 system system
 
-    # setup datadata
+    # Setup datadata
     exec /sbin/setupdatadata.sh
 
-# create data/gps for GPS demon
+    # Create data/gps for GPS demon
     mkdir /data/gps 771 gps system
     chown gps system /data/gps
     chmod 771 /data/gps
     chown gps root /sys/class/sec/gps/GPS_PWR_EN/value
     chmod 660 /sys/class/sec/gps/GPS_PWR_EN/value
 
-    # wi-fi
+    # Wi-fi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
     mkdir /data/misc/dhcp 0770 dhcp dhcp
 
-    # download cache
+    # Download cache
     mkdir /data/download 0770 system cache
 
     setprop vold.post_fs_data_done 1
@@ -320,7 +324,7 @@ service tvout /system/bin/tvoutserver
     user root
     group root
 
-# fusewrapped external sdcard daemon running as media_rw (1023)
+# Fusewrapped external sdcard daemon running as media_rw (1023)
 service fuse_sdcard0 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard0 /storage/sdcard0
     class late_start
     disabled
