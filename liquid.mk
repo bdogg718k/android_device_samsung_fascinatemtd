@@ -1,18 +1,18 @@
 ## Specify phone tech before including full_phone
-$(call inherit-product, vendor/cm/config/cdma.mk)
+$(call inherit-product, vendor/liquid/config/common_cdma.mk)
 
 # Release name
 PRODUCT_RELEASE_NAME := Fascinate
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+$(call inherit-product, vendor/liquid/config/common_phone.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/samsung/fascinatemtd/full_fascinatemtd.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := fascinatemtd
-PRODUCT_NAME := cm_fascinatemtd
+PRODUCT_NAME := liquid_fascinatemtd
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SCH-I500
 
