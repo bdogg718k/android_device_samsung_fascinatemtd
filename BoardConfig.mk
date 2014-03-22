@@ -36,6 +36,9 @@ TARGET_KERNEL_CUSTOM_TOOLCHAIN := LK
 # Dalvik startup with low memory footprint
 TARGET_ARCH_LOWMEM := true
 
+# RIL
+BOARD_RIL_CLASS := "../../../device/samsung/fascinatemtd/ril/"
+
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
@@ -97,7 +100,7 @@ BOARD_KERNEL_CMDLINE := console=ttyFIQ0,115200 init=/init no_console_suspend
 TARGET_KERNEL_SOURCE := kernel/samsung/aries
 TARGET_KERNEL_CONFIG := cyanogenmod_fascinatemtd_defconfig
 
-BOARD_BOOTIMAGE_PARTITION_SIZE := 0x105c0000 #temporary hack
+BOARD_BOOTIMAGE_PARTITION_SIZE := 7864320
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 419430400
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 1665130496
 BOARD_FLASH_BLOCK_SIZE := 4096
@@ -123,6 +126,7 @@ TARGET_BOOTANIMATION_USE_RGB565 := true
 # Recovery
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/aries-common/recovery/graphics.c
 BOARD_USES_BML_OVER_MTD := true
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/fascinatemtd/shbootimg.mk
 TARGET_RECOVERY_PRE_COMMAND := "echo 1 > /cache/.startrecovery; sync;"
