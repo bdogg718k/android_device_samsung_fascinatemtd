@@ -53,9 +53,8 @@ PRODUCT_COPY_FILES += \
 	device/samsung/aries-common/lpm.rc:root/lpm.rc \
 	device/samsung/fascinatemtd/ueventd.aries.rc:root/ueventd.aries.rc \
 	device/samsung/fascinatemtd/fstab.aries:root/fstab.aries \
-	device/samsung/aries-common/setupdatadata.sh:root/sbin/setupdatadata.sh\
-     device/samsung/fascinatemtd/twrp.fstab:recovery/root/etc/twrp.fstab
-
+	device/samsung/aries-common/setupdatadata.sh:root/sbin/setupdatadata.sh
+     
 # Prebuilt kl keymaps
 PRODUCT_COPY_FILES += \
 	device/samsung/aries-common/cypress-touchkey.kl:system/usr/keylayout/cypress-touchkey.kl \

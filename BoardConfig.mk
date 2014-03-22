@@ -31,12 +31,10 @@ TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_ARCH_VARIANT_CPU := cortex-a8
 TARGET_CPU_VARIANT := cortex-a8
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := LK
 
 # Dalvik startup with low memory footprint
 TARGET_ARCH_LOWMEM := true
-
-# RIL
-BOARD_RIL_CLASS := "../../../device/samsung/fascinatemtd/ril/"
 
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
@@ -125,7 +123,6 @@ TARGET_BOOTANIMATION_USE_RGB565 := true
 # Recovery
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_HAS_NO_SELECT_BUTTON := true
-BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/fascinatemtd/recovery/graphics.c
 BOARD_USES_BML_OVER_MTD := true
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/fascinatemtd/shbootimg.mk
 TARGET_RECOVERY_PRE_COMMAND := "echo 1 > /cache/.startrecovery; sync;"
@@ -164,14 +161,3 @@ BOARD_SEPOLICY_UNION += \
     tvouthack.te \
     tvoutserver.te
 
-# TWRP Flags
-DEVICE_RESOLUTION := 480x800
-TW_NO_REBOOT_BOOTLOADER := true
-TW_EXTERNAL_STORAGE_PATH := "/sdcard"
-TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
-TW_DEFAULT_EXTERNAL_STORAGE := true
-TW_FLASH_FROM_STORAGE := true
-TW_EXCLUDE_SUPERSU := true
-TW_INCLUDE_FB2PNG := true
-TW_MAX_BRIGHTNESS := 255
-TW_BRIGHTNESS_PATH := "/sys/class/backlight/s5p_bl/brightness"
